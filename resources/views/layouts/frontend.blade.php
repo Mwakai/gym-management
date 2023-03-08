@@ -49,7 +49,6 @@
                         </div>
                         <a href="" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block">Join Us</a>
 
-
                         @if (Route::has('login'))
                             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
                             @auth
