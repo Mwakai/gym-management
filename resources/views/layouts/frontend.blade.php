@@ -7,7 +7,7 @@
     <title>GYM MEMBERSHIP</title>
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"/>
@@ -29,23 +29,23 @@
 <body>
 
     <header>
-        
+
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0 px-lg-5">
             <a href="#" class="navbar-brand d-block d-lg-none">
                 <h1 class="m-0 display-4 text-primary text-uppercase">Gymster</h1>
             </a>
 
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-bs-target="#navbarCollapse"> 
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About</a>
-                            <a href="class.html" class="nav-item nav-link">Classes</a>
-                            <a href="team.html" class="nav-item nav-link">Trainers</a>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="" class="nav-item nav-link active">Home</a>
+                            <a href="" class="nav-item nav-link">About</a>
+                            <a href="" class="nav-item nav-link">Classes</a>
+                            <a href="" class="nav-item nav-link">Trainers</a>
+                            <a href="" class="nav-item nav-link">Contact</a>
                         </div>
                         <a href="" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block">Join Us</a>
 
@@ -66,12 +66,12 @@
 
 
         </nav>
-        
+
     </header>
 
     <main>
         @yield('content')
     </main>
-    
+
 </body>
 </html>
