@@ -28,6 +28,9 @@
                                         <h3>Members</h3>
                                     </div>
                                 </div>
+
+                                <div class="card-body table-responsive p-0"></div>
+
                             </div>
                         </div>
                     </div>
