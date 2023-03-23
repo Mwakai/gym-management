@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class MembersController extends Controller
 {
-    //
-    public function addMembers()
+  
+    public function join_us()
     {
-        return view('members.index');
+        return view('pages.join_us');
     }
 }

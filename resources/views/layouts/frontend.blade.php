@@ -47,7 +47,7 @@
                             <a href="" class="nav-item nav-link">Trainers</a>
                             <a href="" class="nav-item nav-link">Contact</a>
                         </div>
-                        <a href="" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block">Join Us</a>
+                        <a href="{{route('join_us')}}" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block">Join Us</a>
 
                         @if (Route::has('login'))
                             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">

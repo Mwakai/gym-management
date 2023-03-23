@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function join_us()
+    {
+        return view('pages.join_us');
+    }
 }

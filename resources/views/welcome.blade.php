@@ -11,7 +11,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase">Best Gym Center</h5>
                             <h1 class="display-2 text-white text-uppercase mb-md-4">Build Your Body Strong With Gymster</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Join Us</a>
+                            <a href="{{route('join_us')}}" class="btn btn-primary py-md-3 px-md-5 me-3">Join Us</a>
                             <a href="" class="btn btn-light py-md-3 px-md-5">Contact Us</a>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase">Best Gym Center</h5>
                             <h1 class="display-2 text-white text-uppercase mb-md-4">Grow Your Strength With Our Trainers</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Join Us</a>
+                            <a href="{{route('join_us')}}" class="btn btn-primary py-md-3 px-md-5 me-3">Join Us</a>
                             <a href="" class="btn btn-light py-md-3 px-md-5">Contact Us</a>
                         </div>
                     </div>
