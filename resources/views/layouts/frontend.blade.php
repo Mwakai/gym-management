@@ -41,7 +41,7 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="" class="nav-item nav-link active">Home</a>
+                            <a href="/" class="nav-item nav-link active">Home</a>
                             <a href="" class="nav-item nav-link">About</a>
                             <a href="" class="nav-item nav-link">Classes</a>
                             <a href="" class="nav-item nav-link">Trainers</a>
