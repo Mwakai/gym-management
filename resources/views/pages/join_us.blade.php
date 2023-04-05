@@ -102,7 +102,7 @@ span.price {
                 <label for="email"><i class="fa fa-envelope"></i> Email</label>
                 <input type="text" id="email" name="email" placeholder="john@example.com">
                 <label for="adr"><i class="fa fa-address-card-o"></i> Phone Number</label>
-                <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                <input type="text" id="number" name="number" placeholder="0712345678">
                 
             </div>
 
