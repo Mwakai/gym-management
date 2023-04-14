@@ -66,7 +66,7 @@
                                               <th>Name</th>
                                               <th>Email</th>
                                               <th>Phone Number</th>
-                                              <th>Image</th>
+                                              <th>Payment</th>
                                               <th>Action</th>
                                           </tr>
                                       </thead>
@@ -76,11 +76,8 @@
                                               <td>id</td>
                                               <td>name</td>
                                               <td>email</td>
-                                              
                                               <td>phone number</td>
-                                              <td>
-                                                  <img src="" class="img-circle" style="width:40px; height:30px">
-                                              </td>
+                                              <td>Payment</td>
                                               <td>
                                                   <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal">
                                                       <i class="fa fa-edit"></i>Edit
@@ -138,16 +135,6 @@
                                                                         <div class="alert alert-danger">{{$message}}</div>
                                                                         @enderror
                                                                       </div>
-                                                                  </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <img src="" width="100px" height="90px">
-                                                                  </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <label>Image</label>
-                                                                      <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
-                                                                      
                                                                   </div>
                                                               </div>
                                                           </div>
@@ -253,14 +240,6 @@
                                         <div class="alert alert-danger">{{$message}}</div>
                                         @enderror
                                     </div>
-
-                                  <div class="col-md-12">
-                                  <label>Image</label>
-                                      <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
-                                      @error('image')
-                                      <div class="alert alert-danger">{{$message}}</div>
-                                      @enderror
-                                  </div>
                               </div>
 
                               
