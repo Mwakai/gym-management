@@ -14,6 +14,6 @@ class Member extends Model
         'name',
         'email',
         'password',
-        'image',
+        'payment',
     ];
 }
