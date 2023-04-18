@@ -82,7 +82,7 @@
                                                   <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal">
                                                       <i class="fa fa-edit"></i>Edit
                                                   </button>
-                                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
+                                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal{{$member->id}}">
                                                       <i class="fa fa-trash"></i>Delete
                                                   </button>
                                               </td>
@@ -151,21 +151,22 @@
 
                                           
                                           <!--DELETE MODAL-->
-                                          <div class="modal fade" id="deleteModal">
+                                          <div class="modal fade" id="deleteModal{{$member->id}}">
                                               <div class="modal-dialog">
                                                   <div class="modal-content">
                                                       <div class="modal-header">
-                                                          <h4 class="modal-title">Delete:</h4>
+                                                          <h4 class="modal-title">Delete: {{$member->name}}</h4>
                                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                               <span aria-hidden="true">&times;</span>
                                                           </button>
                                                       </div>
 
-                                                      <form method="POST" action="">
+                                                      <form method="POST" action="{{ route('admin.deleteMembers') }}"
+">
                                                           @csrf
                                                           <div class="modal-body">
                                                               <div class="row">
-                                                                  <input type="text" name="id" value="" hidden="true">
+                                                              <input type="text" name="id" value="{{$member->id}}" hidden>
                                                                   <div class="col-md-12">
                                                                       <p>Are you sure you want to delete this record ?</p>
                                                                   </div>

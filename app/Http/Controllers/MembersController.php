@@ -77,4 +77,12 @@ class MembersController extends Controller
         return redirect()->back()->with('success', 'Member Added Successfully');
 
     }
+
+    //DELETE MEMBER 
+    public function deleteMember(Request $request) {
+        $id = $request->id;
+        Member::where('id', $id)->delete();
+    
+        return redirect()->back()->with('success', 'Member Deleted Successfully');
+    }
 }

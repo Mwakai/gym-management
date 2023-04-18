@@ -31,5 +31,4 @@ Route::get('/admin/members', [MembersController::class, 'index'])->name('members
 Route::get('/pages/join_us', [MembersController::class, 'join_us'])->name('join_us');
 
 Route::post('/pages/admin/addMember', [MembersController::class, 'addMember'])->name('admin.memebers');
-
-//DARAJA API ROUTE
+Route::post('/pages/admin/deleteMember', [MembersController::class, 'deleteMember'])->name('admin.deleteMembers');
