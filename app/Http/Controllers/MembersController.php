@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use Illuminate\Http\Request;
+use Safaricom\Mpesa\Mpesa;
+use Safaricom\Mpesa\Facade\Mpesa as FacadeMpesa;
 
 class MembersController extends Controller
 {
@@ -30,6 +32,14 @@ class MembersController extends Controller
             'phone' => 'required',
 
         ]);
+
+        Member::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+        ]);
+
+        return redirect()->back()->with('success', 'Member Added Successfully');
 
     }
 }
