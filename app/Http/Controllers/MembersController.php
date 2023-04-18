@@ -40,14 +40,14 @@ class MembersController extends Controller
             'phone' => $request->phone,
             'payment' => $request->payment,
         ]);
-        
+
         $BusinessShortCode = '174379';
-        $LipaNaMpesaPasskey = 'e2d3b0e1b1e1b1e1b1e1b1e1b1e1b1e1';
+        $LipaNaMpesaPasskey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
         $TransactionType = 'CustomerPayBillOnline';
         $Amount = $request->payment;
-        $PartyA = $request->phone;
+        $PartyA = '254746745475'; // replace this with your phone number
         $PartyB = '174379';
-        $PhoneNumber = $request->phone;
+        $PhoneNumber = '254746745475';
         $CallBackURL = 'https://safaricom.co.ke/mpesa_online/lnmo_checkout_server.php?wsdl';
         $AccountReference = 'Mpesa';
         $TransactionDesc = 'Mpesa';
@@ -67,6 +67,7 @@ class MembersController extends Controller
             $TransactionDesc, // A description of the transaction.
             $Remarks, // Comments that are sent along with the transaction.
         );
+        dd($stkPushSimulation);
 
         return redirect()->back()->with('success', 'Member Added Successfully');
 

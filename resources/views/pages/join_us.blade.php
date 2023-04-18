@@ -92,32 +92,31 @@ span.price {
     <div class="row">
     <div class="col-75">
         <div class="container">
-        <form action="" method="POST">
+        <form action="{{route('admin.memebers')}}" method="POST">
+          @csrf
 
             <div class="row">
             <div class="col-50">
                 <h3>Billing Address</h3>
                 <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                <input type="text" id="fname" name="name" placeholder="John M. Doe">
                 <label for="email"><i class="fa fa-envelope"></i> Email</label>
                 <input type="text" id="email" name="email" placeholder="john@example.com">
-                <label for="adr"><i class="fa fa-address-card-o"></i> Phone Number</label>
-                <input type="text" id="number" name="number" placeholder="0712345678">
+                <label for="phone"><i class="fa fa-phone"></i> Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter phone number" required>
+
+
+                <label for="adr"><i class="fa fa-address-card-o"></i> Amount</label>
+                <input type="text" id="payment" name="payment" placeholder="200">
                 
             </div>
 
-            <div class="col-50">
-                <h3>Payment</h3>
-                <label for="fname">Accepted Cards</label>
-                <div id='mpesaButton' data-phone='254722XXXXXX' data-amount=3000 data-url='https://domain.com/mpesa/payments/request'>
-                  
-                </div>
+          
         
             </div>
 
             </div>
             <label>
-            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
             </label>
             <input type="submit" value="Continue to checkout" class="btn" style="background-color: #04AA6D;">
         </form>
