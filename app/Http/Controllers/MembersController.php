@@ -13,7 +13,12 @@ class MembersController extends Controller
 
     public function index() {
 
-        return view('admin.members');
+        $query = Member::all();
+        $total = count($query);
+
+        $members = Member::latest()->paginate(5);
+
+        return view('admin.members', compact('members', 'total'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 

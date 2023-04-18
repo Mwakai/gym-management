@@ -47,9 +47,9 @@
                       <div class="col-12">
                           <div class="card">
                               <div class="card-header">
-                                  
-                                  <h3> Records</h3>
-                                  
+                                  @if(!empty($total))
+                                  <h3>{{$total}} Records</h3>
+                                  @endif
                                   
                                   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
                                     <i class="fa fa-plus"></i>Add
@@ -71,13 +71,13 @@
                                           </tr>
                                       </thead>
                                       <tbody>
-                                          
+                                          @foreach($members as $member)
                                           <tr>
-                                              <td>id</td>
-                                              <td>name</td>
-                                              <td>email</td>
-                                              <td>phone number</td>
-                                              <td>Payment</td>
+                                              <td>{{$member->id}}</td>
+                                              <td>{{$member->name}}</td>
+                                              <td>{{$member->email}}</td>
+                                              <td>{{$member->phone}}</td>
+                                              <td>{{$member->payment}}</td>
                                               <td>
                                                   <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal">
                                                       <i class="fa fa-edit"></i>Edit
@@ -182,12 +182,14 @@
                                           </div>
                                           <!--END OF DELETE MODAL-->
 
+                                            @endforeach
                                           
 
                                           
 
                                       </tbody>
                                   </table>
+                                  {!! $members->links() !!}
                                   
                               </div>
                           </div>
