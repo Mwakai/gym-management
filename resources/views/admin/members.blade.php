@@ -161,8 +161,7 @@
                                                           </button>
                                                       </div>
 
-                                                      <form method="POST" action="{{ route('admin.deleteMembers') }}"
-">
+                                                      <form method="POST" action="{{ route('admin.deleteMembers') }}">
                                                           @csrf
                                                           <div class="modal-body">
                                                               <div class="row">
