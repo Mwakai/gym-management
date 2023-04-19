@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $query = Member::all();
+        $total = count($query);
+        $totalPayment = Member::sum('payment');
+
+        $members = Member::latest()->paginate(5);
+
+        return view('home', compact('members', 'total', 'totalPayment'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function join_us()
