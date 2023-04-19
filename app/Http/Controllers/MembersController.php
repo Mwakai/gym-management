@@ -15,7 +15,7 @@ class MembersController extends Controller
 
         $query = Member::all();
         $total = count($query);
-    
+
 
         $members = Member::latest()->paginate(5);
 

@@ -28,7 +28,10 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{$totalPayment}}</h3>
+                <h3>{{$totalPayment}} 
+                    &nbsp;
+                    KES
+                </h3>
 
                 <p>Total Revenue</p>
               </div>
