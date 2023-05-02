@@ -1,6 +1,5 @@
 @extends('layouts.frontend')
 @section('content')
-
 <style>
     .row {
   display: -ms-flexbox; /* IE10 */
@@ -9,35 +8,29 @@
   flex-wrap: wrap;
   margin: 0 -16px;
 }
-
 .col-25 {
   -ms-flex: 25%; /* IE10 */
   flex: 25%;
 }
-
 .col-50 {
   -ms-flex: 50%; /* IE10 */
   flex: 50%;
 }
-
 .col-75 {
   -ms-flex: 75%; /* IE10 */
   flex: 75%;
 }
-
 .col-25,
 .col-50,
 .col-75 {
   padding: 0 16px;
 }
-
 .container {
   background-color: #f2f2f2;
   padding: 5px 20px 15px 20px;
   border: 1px solid lightgrey;
   border-radius: 3px;
 }
-
 input[type=text] {
   width: 100%;
   margin-bottom: 20px;
@@ -45,7 +38,6 @@ input[type=text] {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-
 label {
   margin-bottom: 10px;
   display: block;
@@ -56,18 +48,13 @@ label {
   padding: 7px 0;
   font-size: 24px;
 }
-
-
-
 .btn:hover {
   background-color: #45a049;
 }
-
 span.price {
   float: right;
   color: grey;
 }
-
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
   .row {
@@ -78,7 +65,6 @@ span.price {
   }
 }
 </style>
-
 <div class="container">
     <script>  
       (function(d, s, id){
@@ -94,7 +80,6 @@ span.price {
         <div class="container">
         <form action="{{route('admin.memebers')}}" method="POST">
           @csrf
-
             <div class="row">
             <div class="col-50">
                 <h3>Billing Address</h3>
@@ -104,17 +89,10 @@ span.price {
                 <input type="text" id="email" name="email" placeholder="john@example.com">
                 <label for="phone"><i class="fa fa-phone"></i> Phone Number</label>
                 <input type="text" id="phone" name="phone" placeholder="Enter phone number" required>
-
-
                 <label for="adr"><i class="fa fa-address-card-o"></i> Amount</label>
                 <input type="text" id="payment" name="payment" placeholder="200">
-                
             </div>
-
-          
-        
             </div>
-
             </div>
             <label>
             </label>
@@ -122,9 +100,5 @@ span.price {
         </form>
         </div>
     </div>
-    
-
-    
 </div>
-
 @endsection

@@ -6,11 +6,9 @@ use App\Models\Member;
 use Illuminate\Http\Request;
 use Safaricom\Mpesa\Mpesa;
 use Safaricom\Mpesa\Facade\Mpesa as FacadeMpesa;
-
 class MembersController extends Controller
 {
   
-
     public function index() {
 
         $query = Member::all();
@@ -47,13 +45,17 @@ class MembersController extends Controller
             'payment' => $request->payment,
         ]);
 
+        /**
+         * DARAJA API TO MAKE MPESA 
+         * PAYMENT
+         */
         $BusinessShortCode = '174379';
         $LipaNaMpesaPasskey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
         $TransactionType = 'CustomerPayBillOnline';
         $Amount = $request->payment;
-        $PartyA = '254746745475'; // replace this with your phone number
+        $PartyA = '254728408484'; // replace this with your phone number
         $PartyB = '174379';
-        $PhoneNumber = '254746745475';
+        $PhoneNumber = '254728408484';
         $CallBackURL = 'https://safaricom.co.ke/mpesa_online/lnmo_checkout_server.php?wsdl';
         $AccountReference = 'Mpesa';
         $TransactionDesc = 'Mpesa';
