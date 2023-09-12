@@ -28,9 +28,14 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/admin/members', [MembersController::class, 'index'])->name('members.index');
-Route::get('/admin/trainers', [TrainersController::class, 'index'])->name('trainers.index');
 
 Route::get('/pages/join_us', [MembersController::class, 'join_us'])->name('join_us');
 
 Route::post('/pages/admin/addMember', [MembersController::class, 'addMember'])->name('admin.memebers');
 Route::post('/pages/admin/deleteMember', [MembersController::class, 'deleteMember'])->name('admin.deleteMembers');
+
+//TRAINERS ROUTE
+Route::get('/admin/trainers', [TrainersController::class, 'index'])->name('trainers.index');
+Route::post('/pages/admin/addTrainer', [TrainersController::class, 'addTrainer'])->name('admin.trainers');
+Route::post('/pages/admin/updateTrainer', [TrainersController::class, 'updateTrainer'])->name('admin.updateTrainers');
+Route::post('/pages/admin/deleteTrainer', [TrainersController::class, 'deleteTrainer'])->name('admin.deleteTrainers');
