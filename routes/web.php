@@ -27,6 +27,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/admin/members', [MembersController::class, 'index'])->name('members.index');
+Route::get('/admin/trainers', [TrainersController::class, 'index'])->name('trainers.index');
 
 Route::get('/pages/join_us', [MembersController::class, 'join_us'])->name('join_us');
 
