@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\Trainer;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,7 +31,10 @@ class HomeController extends Controller
 
         $members = Member::latest()->paginate(5);
 
-        return view('home', compact('members', 'total', 'totalPayment'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $query = Trainer::all();
+        $trainer = count($query);
+
+        return view('home', compact('members', 'total', 'totalPayment', 'trainer'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function join_us()

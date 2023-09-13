@@ -13,6 +13,8 @@
               <div class="inner">
                 @if(!empty($total))
                     <h3>{{$total}}</h3>
+                    @else
+                    <h3>0</h3>
                 @endif
 
                 <p>MEMBERS</p>
@@ -46,7 +48,11 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                @if($trainer >0)
+                <h3>{{$trainer}}</h3>
+                @else
+                <h3>0</h3>
+                @endif
 
                 <p>Trainers</p>
               </div>
