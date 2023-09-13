@@ -14,5 +14,6 @@ class Trainer extends Model
         'name',
         'email',
         'phone',
+        'image'
     ];
 }
