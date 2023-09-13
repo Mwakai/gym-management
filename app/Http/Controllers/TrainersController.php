@@ -35,7 +35,37 @@ class TrainersController extends Controller
 
     }
 
-    public function updateTrainer() {
+    public function updateTrainer(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'image' => 'required',
+        ]);
+        $id = $request->id;
+
+        if(!empty($request->image)) {
+            $request->validate([
+                'image' => 'required'|'image'|'mimes:jpeg,png,jpg,gif,svg',
+            ]);
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+
+            Trainer::where('id', $id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'image' => $imageName
+            ]);
+            return redirect()->back()->with('success', 'Trainer updated successfully');
+        }else {
+            Trainer::where('id', $id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone
+            ]);
+            return redirect()->back()->with('success', 'Trainer updated successfully');
+        }
 
     }
 
