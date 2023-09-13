@@ -10,15 +10,20 @@ class TrainersController extends Controller
     //
 
     public function index() {
-        return view('admin.trainers');
+
+        $query = Trainer::all();
+        $total = count($query);
+
+        $images = Trainer::latest()->paginate(10);
+        return view('admin.trainers', compact('images', 'total'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     public function addTrainer(Request $request) {
         $request->validate([
-            'name' => 'required'|'string'|'min:3'|'max:255',
-            'email' => 'required'|'string'|'email',
-            'phone' => 'required'|'string'|'min:10'|'max:10',
-            'image' => 'required'|'image'|'mimes:jpeg,png,jpg,gif,svg',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'image' => 'required',
         ]);
 
         $image=time().'.'.$request->image->extension();
@@ -46,7 +51,7 @@ class TrainersController extends Controller
 
         if(!empty($request->image)) {
             $request->validate([
-                'image' => 'required'|'image'|'mimes:jpeg,png,jpg,gif,svg',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('images'), $imageName);

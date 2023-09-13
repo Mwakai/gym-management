@@ -47,8 +47,11 @@
                       <div class="col-12">
                           <div class="card">
                               <div class="card-header">
-                                  
-                                  <h3>Records</h3>
+                                  @if(!empty($total))
+                                  <h3>{{$total}}Records</h3>
+                                  @else
+                                  <h3>No Records</h3>
+                                  @endif
                                   
                                   
                                   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
@@ -70,17 +73,21 @@
                                           </tr>
                                       </thead>
                                       <tbody>
+                                        @foreach($images as $image)
                                           
                                           <tr>
-                                              <td>id</td>
-                                              <td>name</td>
-                                              <td>email</td>
-                                              <td>phone</td>
+                                              <td>{{$image->id}}</td>
+                                              <td>{{$image->name}}</td>
+                                              <td>{{$image->email}}</td>
+                                              <td>{{$image->phone}}</td>
                                               <td>
-                                                  <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal">
+                                                  <img src="{{asset('images/'.$image->image)}}" class="img-circle" style="width:40px; height:30px">
+                                              </td>
+                                              <td>
+                                                  <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal{{$image->id}}">
                                                       <i class="fa fa-edit"></i>Edit
                                                   </button>
-                                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
+                                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal{{$image->id}}">
                                                       <i class="fa fa-trash"></i>Delete
                                                   </button>
                                               </td>
@@ -89,25 +96,25 @@
                                           
 
                                           <!--EDIT MODAL-->
-                                          <div class="modal fade" id="editModal">
+                                          <div class="modal fade" id="editModal{{$image->id}}">
                                               <div class="modal-dialog">
                                                   <div class="modal-content">
                                                       <div class="modal-header">
-                                                          <h4 class="modal-title">Update</h4>
+                                                          <h4 class="modal-title">Update: {{$image->name}}</h4>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                       </div>
 
-                                                      <form method="POST" action="" enctype="multipart/form-data">
+                                                      <form method="POST" action="{{ route('admin.updateTrainers')}}" enctype="multipart/form-data">
                                                           @csrf
                                                           <div class="modal-body">
                                                               <div class="row">
-                                                                  <input type="text" name="id" value="" hidden="true">
+                                                                  <input type="text" name="id" value="{{$image->id}}" hidden="true">
                                                                   <div class="col-md-12">
                                                                       <div class="form-group">
                                                                           <label>Name</label>
-                                                                          <input type="text" class="form-control @error('name') is-invalid @enderror " name="name" value="">
+                                                                          <input type="text" class="form-control @error('name') is-invalid @enderror " name="name" value="{{$image->name}}">
                                                                           @error('name')
                                                                             <div class="alert alert-danger">{{$message}}</div>
                                                                             @enderror
@@ -117,7 +124,7 @@
                                                                   <div class="col-md-12">
                                                                       <div class="form-group">
                                                                           <label>Email</label>
-                                                                          <input type="text" class="form-control @error('email') is-invalid @enderror " name="email" value="">
+                                                                          <input type="text" class="form-control @error('email') is-invalid @enderror " name="email" value="{{$image->email}}">
                                                                           @error('email')
                                                                         <div class="alert alert-danger">{{$message}}</div>
                                                                         @enderror
@@ -128,12 +135,24 @@
                                                                       <div class="form-group">
                                                                         <label>Phone Number</label>
                                                                     
-                                                                        <input type="phone" class="form-control @error('phone') is-invalid @enderror " name="phone" value="">
+                                                                        <input type="phone" class="form-control @error('phone') is-invalid @enderror " name="phone" value="{{$image->phone}}">
                                                                         @error('phone')
                                                                         <div class="alert alert-danger">{{$message}}</div>
                                                                         @enderror
                                                                       </div>
                                                                   </div>
+
+                                                                  <div class="col-md-12">
+                                                                      <img src="{{asset('images/'.$image->image)}}" width="100px" height="90px">
+                                                                  </div>
+
+                                                                  <div class="col-md-12">
+                                                                        <label>Image</label>
+                                                                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
+                                                                        @error('image')
+                                                                        <div class="alert alert-danger">{{$message}}</div>
+                                                                        @enderror
+                                                                    </div>
                                                               </div>
                                                           </div>
 
@@ -149,21 +168,22 @@
 
                                           
                                           <!--DELETE MODAL-->
-                                          <div class="modal fade" id="deleteModal">
+                                          <div class="modal fade" id="deleteModal{{$image->id}}">
                                               <div class="modal-dialog">
                                                   <div class="modal-content">
                                                       <div class="modal-header">
-                                                          <h4 class="modal-title">Delete: name</h4>
+                                                          <h4 class="modal-title">Delete: {{$image->name}}</h4>
                                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                               <span aria-hidden="true">&times;</span>
                                                           </button>
                                                       </div>
 
-                                                      <form method="POST" action="">
+                                                      <form method="POST" action="{{ route('admin.deleteTrainers') }}">
+
                                                           @csrf
                                                           <div class="modal-body">
                                                               <div class="row">
-                                                              <input type="text" name="id" value="id" hidden>
+                                                              <input type="text" name="id" value="{{$image->id}}" hidden>
                                                                   <div class="col-md-12">
                                                                       <p>Are you sure you want to delete this record ?</p>
                                                                   </div>
@@ -180,7 +200,7 @@
                                           </div>
                                           <!--END OF DELETE MODAL-->
 
-                                            
+                                        @endforeach
                                           
 
                                           
@@ -204,13 +224,13 @@
               <div class="modal-dialog">
                   <div class="modal-content">
                       <div class="modal-header">
-                          <h4 class="modal-title">Add Image</h4>
+                          <h4 class="modal-title">Add Trainer</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                           </button>
                       </div>
 
-                      <form method="POST" action="" enctype="multipart/form-data">
+                      <form method="POST" action="{{ route('admin.trainers')}}" enctype="multipart/form-data">
                           @csrf
                           <div class="modal-body">
                               <div class="row">
@@ -237,6 +257,14 @@
                                         <label>Phone Number</label>
                                         <input type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="">
                                         @error('phone')
+                                        <div class="alert alert-danger">{{$message}}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <label>Image</label>
+                                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
+                                        @error('image')
                                         <div class="alert alert-danger">{{$message}}</div>
                                         @enderror
                                     </div>
