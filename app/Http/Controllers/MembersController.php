@@ -53,9 +53,9 @@ class MembersController extends Controller
         $LipaNaMpesaPasskey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
         $TransactionType = 'CustomerPayBillOnline';
         $Amount = $request->payment;
-        $PartyA = '254728408484'; // replace this with your phone number
+        $PartyA = '254746745475'; // replace this with your phone number
         $PartyB = '174379';
-        $PhoneNumber = '254728408484';
+        $PhoneNumber = '254746745475';
         $CallBackURL = 'https://safaricom.co.ke/mpesa_online/lnmo_checkout_server.php?wsdl';
         $AccountReference = 'Mpesa';
         $TransactionDesc = 'Mpesa';
